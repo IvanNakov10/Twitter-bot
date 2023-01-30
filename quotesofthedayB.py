@@ -15,5 +15,5 @@ print("Quote: " + quote)
 print("Author: " + author)
 
 api = tweepy.API(auth)
-
-api.update_status("Quote: " + quote)
+quoteD = "Quote: " + quote + "\n" + "Author: " + author
+api.update_status(quoteD)
