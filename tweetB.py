@@ -24,9 +24,6 @@ def getPrices():
 
   # Authenticate with Twitter using your consumer key and secret
 
-
-
-
   btc_price = round(data['data']['BTC']['quote']['USD']['price'], 2)
   eth_price = round(data['data']['ETH']['quote']['USD']['price'], 2)
   gala_price = round(data['data']['GALA']['quote']['USD']['price'], 4)
@@ -41,7 +38,9 @@ def getPrices():
   cryptotoday = "Btc: " + str(btc_price) + "\n" + "Eth: " + str(eth_price) + "\n" + "Gala: " + str(gala_price) +"\n" + "\n" "Your crypto is valued at: " + str(hole_amount) + "$"
   # Post a tweet
   api.update_status(cryptotoday)
+
 schedule.every().hour.do(getPrices)
+
 
 while True:
     schedule.run_pending()
