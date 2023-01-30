@@ -22,7 +22,7 @@ data = response.json()
 
 btc_price = round(data['data']['BTC']['quote']['USD']['price'], 2)
 eth_price = round(data['data']['ETH']['quote']['USD']['price'], 2)
-gala_price = round(data['data']['GALA']['quote']['USD']['price'], 2)
+gala_price = round(data['data']['GALA']['quote']['USD']['price'], 4)
 
 # Create an API object
 api = tweepy.API(auth)
@@ -32,8 +32,9 @@ ethamount = eth_price*0.03
 text = "your crypto is valued at: "
 hole_amount = round(btcpriceIvan+galaamount+ethamount, 2)
 allthing = text + str(hole_amount) + "$"
+cryptotoday = "Btc: " + str(btc_price) + "\n" + "Eth: " + str(eth_price) + "\n" + "Gala: " + str(gala_price) +"\n" + "\n"
 # Post a tweet
-api.update_status(allthing)
+api.update_status(cryptotoday)
 
 
 
