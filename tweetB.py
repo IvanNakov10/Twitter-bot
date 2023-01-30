@@ -1,9 +1,12 @@
 import tweepy
 import keys
 import requests
+
+
 # Authenticate with Twitter using your consumer key and secret
 auth = tweepy.OAuthHandler(keys.api_key, keys.api_secret)
 auth.set_access_token(keys.access, keys.access_secret)
+
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 parameters = {
@@ -29,10 +32,9 @@ api = tweepy.API(auth)
 btcpriceIvan = btc_price*0.001 
 galaamount = gala_price*630.8
 ethamount = eth_price*0.03
-text = "your crypto is valued at: "
 hole_amount = round(btcpriceIvan+galaamount+ethamount, 2)
-allthing = text + str(hole_amount) + "$"
-cryptotoday = "Btc: " + str(btc_price) + "\n" + "Eth: " + str(eth_price) + "\n" + "Gala: " + str(gala_price) +"\n" + "\n"
+
+cryptotoday = "Btc: " + str(btc_price) + "\n" + "Eth: " + str(eth_price) + "\n" + "Gala: " + str(gala_price) +"\n" + "\n" "Your crypto is valued at: " + str(hole_amount) + "$"
 # Post a tweet
 api.update_status(cryptotoday)
 
