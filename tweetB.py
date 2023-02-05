@@ -32,7 +32,7 @@ def getPrices():
   api = tweepy.API(auth)
   btcpriceIvan = btc_price*0.001 
   galaamount = gala_price*630.8
-  ethamount = eth_price*0.03
+  ethamount = eth_price*0.05227
   hole_amount = round(btcpriceIvan+galaamount+ethamount, 2)
 
   cryptotoday = "Btc: " + str(btc_price) + "\n" + "Eth: " + str(eth_price) + "\n" + "Gala: " + str(gala_price) +"\n" + "\n" "Your crypto is valued at: " + str(hole_amount) + "$"
